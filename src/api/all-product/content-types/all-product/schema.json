@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "all_products",
+  "info": {
+    "singularName": "all-product",
+    "pluralName": "all-products",
+    "displayName": "allProduct"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    }
+  }
+}
