@@ -663,11 +663,7 @@ export interface ApiInformationInformation extends Struct.SingleTypeSchema {
     photo: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    schedules: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::schedule.schedule'
-    > &
-      Schema.Attribute.Private;
+    schedules: Schema.Attribute.Relation<'oneToMany', 'api::schedule.schedule'>;
     social_networks: Schema.Attribute.Relation<
       'oneToMany',
       'api::social-network.social-network'
