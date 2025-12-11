@@ -513,7 +513,6 @@ export interface ApiAllProductAllProduct extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::all-product.all-product'
     >;
-    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -652,22 +651,14 @@ export interface ApiInformationInformation extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     location: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    phone: Schema.Attribute.Integer &
+    phone: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 9;
-        },
-        number
-      >;
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 9;
+      }>;
     photo: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    schedules: Schema.Attribute.Relation<'oneToMany', 'api::schedule.schedule'>;
-    social_networks: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::social-network.social-network'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -768,6 +759,19 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    order: Schema.Attribute.BigInteger &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: '1';
+        },
+        string
+      >;
     price: Schema.Attribute.Decimal &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

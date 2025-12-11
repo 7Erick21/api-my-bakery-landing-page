@@ -23,11 +23,6 @@
       "type": "string",
       "required": true
     },
-    "phone": {
-      "type": "integer",
-      "required": true,
-      "max": 9
-    },
     "photo": {
       "type": "media",
       "multiple": false,
@@ -37,15 +32,11 @@
         "files"
       ]
     },
-    "social_networks": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::social-network.social-network"
-    },
-    "schedules": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::schedule.schedule"
+    "phone": {
+      "type": "string",
+      "maxLength": 9,
+      "required": true,
+      "regex": "^\\d{9}$"
     }
   }
 }

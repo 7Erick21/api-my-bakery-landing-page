@@ -49,6 +49,16 @@
           "localized": false
         }
       }
+    },
+    "order": {
+      "type": "biginteger",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "min": "1"
     }
   }
 }
